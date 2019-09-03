@@ -2,19 +2,30 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title>BOOK SEARCH</title>
   <meta charset="utf-8">
+  <title>Book Finder</title>
   <meta name="description" content="Find some books using Google's Book API">
-  <meta name="keywords" content="Oleksandr, Malakhov, alexever17, books, API, coding, google">
-  <meta name="author" content="Oleksandr Malakhov">
+  <meta name="keywords" content="books, API, coding, google">
+  <meta name="author" content="Book finder">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
-  <script src="js/scripts.js" charset="utf-8"></script>
+  <meta property="og:image" content="https://www.bookbusinessmag.com/thumb/?src=/wp-content/uploads/sites/4/2016/01/google-books-750x340.png&w=750&h=340">
   <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/uikit-3/uikit.css" />
+  <script src="assets/uikit-3/uikit.js"></script>
+  <link rel="stylesheet" href="assets/master.css">
 </head>
 
 <body>
-
+  <main>
+    <h1>Book Finder</h1>
+    <div class="uk-margin">
+      <form class="uk-search uk-search-large" id="book-search">
+        <a href="" class="uk-search-icon-flip" uk-search-icon id="search-button"></a>
+        <input class="uk-search-input" type="search" placeholder=" Search..." id="search-input">
+      </form>
+    </div>
+  </main>
 </body>
 
 </html>
