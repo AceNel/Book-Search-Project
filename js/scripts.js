@@ -23,3 +23,14 @@ function search(e) {
     alert("Please type in your search request")
   }
 }
+
+//makes the api call to google
+async function asyncCall(query) {
+  try {
+    //axios is a open source js file which makes get request very easy
+    let data = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}s&key=${api_key}`);
+    display(data); //loads in the data as cards into the dom
+  } catch (err) {
+    alert("Something went wrong. Please try again"); // If something goes wrong with the call, this is displayed
+  }
+}
