@@ -34,3 +34,33 @@ async function asyncCall(query) {
     alert("Something went wrong. Please try again"); // If something goes wrong with the call, this is displayed
   }
 }
+
+//makes an array of processed items to diplay for the api data
+function display(data) {
+  dataArray = data.data.items
+  let processedData = [];
+  for (let i = 0; i < dataArray.length; i++) {
+    if (dataArray[i].volumeInfo.authors == undefined) { dataArray[i].volumeInfo.authors = ["#Missing Entry#"]}
+    if (dataArray[i].volumeInfo.publisher == undefined) { dataArray[i].volumeInfo.publisher = "#Missing Entry#" }
+
+    const element = `
+      <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+          <img src="${dataArray[i].volumeInfo.imageLinks.thumbnail}" alt="The image to ${dataArray[i].volumeInfo.title} by ${dataArray[i].volumeInfo.authors[0]}" uk-cover>
+          <canvas width="600" height="400"></canvas>
+        </div>
+        <div>
+          <div class="uk-card-body">
+            <h3 class="uk-card-title">${dataArray[i].volumeInfo.title}</h3>
+            <p>Written by ${dataArray[i].volumeInfo.authors[0]}</p>
+            <p>Published by ${dataArray[i].volumeInfo.publisher}</p>
+            <a href="${dataArray[i].volumeInfo.previewLink}" class="uk-button uk-button-primary">Further Info</a>
+          </div>
+        </div>
+      </div>
+    `;
+    processedData.push(element);
+  }
+  displayArea.innerHTML = ""; //deletes the old search results
+  displayArea.innerHTML = processedData.join("");
+}
