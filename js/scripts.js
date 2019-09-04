@@ -11,3 +11,15 @@ document.addEventListener("keypress", function (e) {
     search(e);
   }
 })
+
+//saves the value of the search query, validates it and starts the fetch process
+function search(e) {
+  e.preventDefault();
+  if (search_input.value != "") {
+    const raw = search_input.value.toLowerCase();
+    const query = raw.replace(/\s/,"+");
+    asyncCall(query);
+  } else {
+    alert("Please type in your search request")
+  }
+}
